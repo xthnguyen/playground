@@ -10,12 +10,12 @@ struct support_special_cal : std::false_type {};
 template <class T>
 struct support_special_cal<T, void_t<decltype(std::declval<T>().custom_cal())>> : std::true_type {};
 
-template<class T, std::enable_if_t<support_special_cal<T>::value>* = nullptr>
-auto calculate(const T& t) {
+template<class T, typename std::enable_if<support_special_cal<T>::value>::type* = nullptr>
+auto calculate(const T& t) -> decltype(t.custom_cal()) {
 	return t.custom_cal();
 }
 
-template<class T, std::enable_if_t<!support_special_cal<T>::value>* = nullptr>
+template<class T, typename std::enable_if<!support_special_cal<T>::value>::type* = nullptr>
 int calculate(const T& t) {
 	return 1000;
 }
@@ -28,7 +28,7 @@ class NormalCalculator {
 
 class SpecialCalculator {
 public:
-	int custom_cal() const  {
+	int custom_cal() const {
 		return 200;
 	}
 };
