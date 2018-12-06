@@ -10,7 +10,8 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-:nmap <F3> :vimgrep // **/*.* <left><left><left><left><left><left><left><left><left>
+":nnoremap <esc> :noh<return><esc>
+:nmap <F3> :vimgrep // **/*.h **/*.c **/*.cpp **/*.cc <left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 :nmap <C-h> <C-i>
 :nmap <C-l> <C-o>
@@ -69,3 +70,8 @@ set laststatus=2
 let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
 set ttimeoutlen=50
+
+source ~/.cscope
+
+"gdb debugging
+packadd termdebug

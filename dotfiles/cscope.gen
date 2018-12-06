@@ -1,0 +1,4 @@
+#!/bin/sh
+
+find . -type f -print | grep -E '\.(c(pp)?|h|hpp|tpp|cc)$' > cscope.files
+cscope -i cscope.files -R -b
