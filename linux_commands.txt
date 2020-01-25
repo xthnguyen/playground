@@ -1,0 +1,16 @@
+# useful Linux commands
+cat /proc/cpuinfo
+cat /proc/meminfo | grep Huge
+mpstat 1
+lsmod
+pmap PID (memory map of process)
+route -n
+netstat -anp --tcp --udp
+socklist
+pgrep -l ssh
+fuser -va 22/tcp
+fuser -va /home
+
+# vi
+D: cut to end of line
+
