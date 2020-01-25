@@ -10,7 +10,31 @@ socklist
 pgrep -l ssh
 fuser -va 22/tcp
 fuser -va /home
-
+cal -3
 # vi
 D: cut to end of line
+
+# screen
+Ctrl-a Ctrl-d to detach
+screen -R -D to attach
+screen -x attach to a running screen in multi display mode
+
+# awk
+awk '{ print $2, $1 }' file # Print and inverse first two columns
+awk '{printf("%5d : %s\n", NR,$0)}' file # Add line number left aligned
+awk '{print FNR "\t" $0}' files # Add line number right aligned
+awk NF test.txt # remove blank lines (same as grep '.')
+awk 'length > 80' # print line longer than 80 char)
+
+# sed
+sed 's/string1/string2/g' # Replace string1 with string2
+sed -i 's/wroong/wrong/g' *.txt # Replace a recurring word with g
+sed 's/\(.*\)1/\12/g' # Modify anystring1 to anystring2
+sed '/<p>/,/<\/p>/d' t.xhtml # Delete lines that start with <p>
+# and end with </p>
+sed '/ *#/d; /^ *$/d' # Remove comments and blank lines
+sed 's/[ \t]*$//' # Remove trailing spaces (use tab as \t)
+sed 's/^[ \t]*//;s/[ \t]*$//' # Remove leading and trailing spaces
+sed 's/[^*]/[&]/' # Enclose first char with [] top->[t]op
+sed = file | sed 'N;s/\n/\t/' > file.num # Number lines on a file
 
