@@ -1,6 +1,7 @@
 # useful Linux commands
 cat /proc/cpuinfo
 cat /proc/meminfo | grep Huge
+netstat -tupln
 mpstat 1
 lsmod
 pmap PID (memory map of process)
